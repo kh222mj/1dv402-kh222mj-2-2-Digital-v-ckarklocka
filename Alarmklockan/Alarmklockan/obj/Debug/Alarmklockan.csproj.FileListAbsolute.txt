@@ -1,0 +1,6 @@
+c:\users\kim\documents\visual studio 2013\Projects\Alarmklockan\Alarmklockan\bin\Debug\Alarmklockan.exe.config
+C:\Users\kim\Documents\Visual Studio 2013\Projects\Alarmklockan\Alarmklockan\bin\Debug\Alarmklockan.exe
+C:\Users\kim\Documents\Visual Studio 2013\Projects\Alarmklockan\Alarmklockan\bin\Debug\Alarmklockan.pdb
+C:\Users\kim\Documents\Visual Studio 2013\Projects\Alarmklockan\Alarmklockan\obj\Debug\Alarmklockan.csprojResolveAssemblyReference.cache
+C:\Users\kim\Documents\Visual Studio 2013\Projects\Alarmklockan\Alarmklockan\obj\Debug\Alarmklockan.exe
+C:\Users\kim\Documents\Visual Studio 2013\Projects\Alarmklockan\Alarmklockan\obj\Debug\Alarmklockan.pdb
