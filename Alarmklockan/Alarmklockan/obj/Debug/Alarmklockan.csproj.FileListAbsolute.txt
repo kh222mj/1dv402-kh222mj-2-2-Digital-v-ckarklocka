@@ -4,3 +4,9 @@ C:\Users\kim\Documents\Visual Studio 2013\Projects\Alarmklockan\Alarmklockan\bin
 C:\Users\kim\Documents\Visual Studio 2013\Projects\Alarmklockan\Alarmklockan\obj\Debug\Alarmklockan.csprojResolveAssemblyReference.cache
 C:\Users\kim\Documents\Visual Studio 2013\Projects\Alarmklockan\Alarmklockan\obj\Debug\Alarmklockan.exe
 C:\Users\kim\Documents\Visual Studio 2013\Projects\Alarmklockan\Alarmklockan\obj\Debug\Alarmklockan.pdb
+P:\git\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\bin\Debug\Alarmklockan.exe.config
+P:\git\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\obj\Debug\Alarmklockan.exe
+P:\git\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\obj\Debug\Alarmklockan.pdb
+P:\git\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\obj\Debug\Alarmklockan.csprojResolveAssemblyReference.cache
+P:\git\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\bin\Debug\Alarmklockan.exe
+P:\git\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\bin\Debug\Alarmklockan.pdb

@@ -20,7 +20,7 @@ namespace Alarmklockan
             get { return _alarmHour; }
             set
             {
-                if (value < 23 || value > 0)
+                if (value > 24 && value < 0)
                 {
                     throw new ArgumentException();
                 }
@@ -32,7 +32,7 @@ namespace Alarmklockan
             get { return _alarmMinute; }
             set
             {
-                if (value < 59 || value > 0)
+                if (value > 60 || value < 0)
                 {
                     throw new ArgumentException();
                 }
@@ -44,7 +44,7 @@ namespace Alarmklockan
             get { return _hour; }
             set
             {
-                if (value < 23 || value > 0)
+                if (value > 24 && value < 0)
                 {
                     throw new ArgumentException();
                 }
@@ -56,7 +56,7 @@ namespace Alarmklockan
             get { return _minute; }
             set
             {
-                if (value < 59 || value > 0)
+                if (value > 60 || value < 0)
                 {
                     throw new ArgumentException();
                 }
@@ -64,12 +64,14 @@ namespace Alarmklockan
             }
         }
         public AlarmClock() 
+            : this(0, 0)
         {
- 
+
         }
         public AlarmClock(int hour, int minute)
+            : this(hour, minute, 0, 0)
         {
- 
+
         }
         public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute) 
         {
@@ -78,31 +80,43 @@ namespace Alarmklockan
             alarmHour = AlarmHour;
             alarmMinute = AlarmMinute;
         }
-        public bool TickTock(int hour, int minute, int alarmHour, int alarmMinute)  
+        public bool TickTock()  
         {
-            minute++;
-            if (minute == 60) 
+            Minute++;
+            
+            if (Minute == 60) 
             {
-                minute = 0;
-                hour++;
+                Minute = 0;
+                Hour++;
             }
-            if (hour == 24) 
+            if (Hour == 24) 
             {
-                hour = 0;
+                Hour = 0;
             }
-            if (hour == alarmHour && minute == alarmMinute) 
+            if (Hour == AlarmHour && Minute == AlarmMinute) 
             {
                 return true;
             }
             return false;
         }
-        public string ToString(int hour, int minute, int alarmHour, int alarmMinute) 
+        public string ToString() 
         {
-            if (minute > 10) 
+            Console.ResetColor();
+            if (_minute == _alarmMinute && _hour == _alarmHour) 
             {
-                return (hour + ":" + "0" + minute + " <" + alarmHour + ":" + alarmMinute + ">");
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.White;
+                if (_minute < 10)
+                {
+                    return (_hour + ":" + "0" + _minute + " <" + _alarmHour + ":" + _alarmMinute + ">" + "   BEEP!  BEEP!  BEEP!  BEEP!");
+                }
+                    return (_hour + ":" + _minute + " <" + _alarmHour + ":" + _alarmMinute + ">" + "   BEEP!  BEEP!  BEEP!  BEEP!");
+            }    
+            if (_minute < 10) 
+            {
+                return (_hour + ":" + "0" + _minute + " <" + _alarmHour + ":" + _alarmMinute + ">");
             }
-            return (hour + ":" + minute + " <" + alarmHour + ":" + alarmMinute + ">");
+            return (_hour + ":" + _minute + " <" + _alarmHour + ":" + _alarmMinute + ">");
         }
     }
  
