@@ -16,13 +16,13 @@ namespace Alarmklockan
 
         private int _minute;
         public int AlarmHour 
-        {
+        {         
             get { return _alarmHour; }
             set
             {
-                if (value > 24 && value < 0)
+                if (value > 24 || value < 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Alarmtimmen är inte i intervallet 0-23.");
                 }
                 _alarmHour = value;
             }
@@ -34,7 +34,7 @@ namespace Alarmklockan
             {
                 if (value > 60 || value < 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Alarmminuten är inte i intervallet 0-59.");
                 }
                 _alarmMinute = value;
             }
@@ -44,9 +44,9 @@ namespace Alarmklockan
             get { return _hour; }
             set
             {
-                if (value > 24 && value < 0)
+                if (value > 24 || value < 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Timmen är inte i intervallet 0-23");
                 }
                 _hour = value;
             }
@@ -58,7 +58,7 @@ namespace Alarmklockan
             {
                 if (value > 60 || value < 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Minuten är inte i intervallet 0-59");
                 }
                 _minute = value;
             }
@@ -66,12 +66,10 @@ namespace Alarmklockan
         public AlarmClock() 
             : this(0, 0)
         {
-
         }
         public AlarmClock(int hour, int minute)
             : this(hour, minute, 0, 0)
         {
-
         }
         public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute) 
         {
@@ -83,7 +81,7 @@ namespace Alarmklockan
         public bool TickTock()  
         {
             Minute++;
-            
+
             if (Minute == 60) 
             {
                 Minute = 0;
@@ -96,28 +94,23 @@ namespace Alarmklockan
             if (Hour == AlarmHour && Minute == AlarmMinute) 
             {
                 return true;
-            }
+            }        
             return false;
         }
         public string ToString() 
         {
             Console.ResetColor();
-            if (_minute == _alarmMinute && _hour == _alarmHour) 
+            if (_alarmHour == 0 && _alarmMinute == 0)
+            {
+                return String.Format("{0,4}:{1:00} <{2}:{3:00}>", _hour, _minute, _alarmHour, _alarmMinute);
+            }
+            if (_hour == _alarmHour && _minute == _alarmMinute) 
             {
                 Console.BackgroundColor = ConsoleColor.Blue;
                 Console.ForegroundColor = ConsoleColor.White;
-                if (_minute < 10)
-                {
-                    return (_hour + ":" + "0" + _minute + " <" + _alarmHour + ":" + _alarmMinute + ">" + "   BEEP!  BEEP!  BEEP!  BEEP!");
-                }
-                    return (_hour + ":" + _minute + " <" + _alarmHour + ":" + _alarmMinute + ">" + "   BEEP!  BEEP!  BEEP!  BEEP!");
-            }    
-            if (_minute < 10) 
-            {
-                return (_hour + ":" + "0" + _minute + " <" + _alarmHour + ":" + _alarmMinute + ">");
+                return String.Format("♫{0,3}:{1:00} <{2}:{3:00}>   BEEP! BEEP! BEEP! BEEP!", _hour, _minute, _alarmHour, _alarmMinute);
             }
-            return (_hour + ":" + _minute + " <" + _alarmHour + ":" + _alarmMinute + ">");
+            return String.Format("{0,4}:{1:00} <{2}:{3:00}>", _hour, _minute, _alarmHour, _alarmMinute);
         }
     }
- 
 }

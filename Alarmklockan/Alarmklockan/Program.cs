@@ -18,6 +18,20 @@ namespace Alarmklockan
                 Console.WriteLine(ac.ToString());
             }
         }
+        private static void ViewErrorMessage(string message) 
+        {
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+        private static void ViewTestHeader(string header) 
+        {
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(header);
+            Console.ResetColor();
+        }
         static void Main(string[] args)
         {
             AlarmClock alarmClock = new AlarmClock();
@@ -55,13 +69,6 @@ namespace Alarmklockan
             alarmClock.Minute = 58;
             alarmClock.AlarmHour = 7;
             alarmClock.AlarmMinute = 35;
-            Console.BackgroundColor = ConsoleColor.DarkGreen;
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" ╔══════════════════════════════════════╗ ");
-            Console.WriteLine(" ║       Väckarklockan URLED <TM>       ║ ");
-            Console.WriteLine(" ║        Modellnr.: 1DV402S2L2A        ║ ");
-            Console.WriteLine(" ╚══════════════════════════════════════╝ ");
-            Console.ResetColor();
             minutes = 13;
             Run(alarmClock, minutes);
             Console.WriteLine("");//Blankrad
@@ -74,15 +81,56 @@ namespace Alarmklockan
             alarmClock.Minute = 12;
             alarmClock.AlarmHour = 6;
             alarmClock.AlarmMinute = 15;
-            Console.BackgroundColor = ConsoleColor.DarkGreen;
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" ╔══════════════════════════════════════╗ ");
-            Console.WriteLine(" ║       Väckarklockan URLED <TM>       ║ ");
-            Console.WriteLine(" ║        Modellnr.: 1DV402S2L2A        ║ ");
-            Console.WriteLine(" ╚══════════════════════════════════════╝ ");
-            Console.ResetColor();
             minutes = 6;
-            Run(alarmClock, minutes); 
+            Run(alarmClock, minutes);
+            Console.WriteLine("");//Blankrad
+
+            //Test 6
+            Console.WriteLine("Test 6");
+            Console.WriteLine("Testar egenskaperna så att undantag kastas då tid och alarmtid tilldelas felaktiga värden.");
+            Console.WriteLine("");//Blankrad
+            try
+            {
+                alarmClock.Hour = 2000;
+            }
+            catch (Exception)
+            {
+                ViewErrorMessage("Timmen är inte i intervallet 0-23.");
+            }
+            try
+            {
+                alarmClock.AlarmHour = 2000;
+            }
+            catch (Exception)
+            {
+                ViewErrorMessage("Alarmtimmen är inte i intervallet 0-23.");
+            }
+            Console.WriteLine("");//Blankrad
+
+            //Test 7
+            Console.WriteLine("Test 7");
+            Console.WriteLine("Testar Konstruktorer så att undantag kastas då tid och alarmtid tilldelas felaktiga värden.");
+            Console.WriteLine("");//Blankrad
+            try
+            {
+                alarmClock.Hour = 2000;
+            }
+            catch (Exception)
+            {
+                string header = "Minuten är inte i intervallet 0-59"; 
+                ViewTestHeader(header);
+            }
+            try
+            {
+                alarmClock.AlarmMinute = 2000;
+            }
+            catch (Exception)
+            {
+                string header = "Alarmminuten är inte i intervallet 0-59";
+                ViewTestHeader(header);
+            }           
         }
     }
 }
+
+
