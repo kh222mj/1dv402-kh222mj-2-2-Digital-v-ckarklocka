@@ -36,20 +36,23 @@ namespace Alarmklockan
         {
             AlarmClock alarmClock = new AlarmClock();
             int minutes;
+            string HorizontalLine = "-------------------------------------------------------------------------------";
             
             //Test 1
             Console.WriteLine("Test 1");
             Console.WriteLine("Test av stadardkonstruktorn.");
-            Console.WriteLine(alarmClock.ToString());
             Console.WriteLine("");//Blankrad
+            Console.WriteLine(alarmClock.ToString());
+            Console.WriteLine(HorizontalLine);
 
             //Test 2
             Console.WriteLine("Test 2");
             Console.WriteLine("Test av konstruktorn med två parametrar.");
             alarmClock.Hour = 9;
             alarmClock.Minute = 42;
-            Console.WriteLine(alarmClock.ToString());
             Console.WriteLine("");//Blankrad
+            Console.WriteLine(alarmClock.ToString());
+            Console.WriteLine(HorizontalLine);
 
             //Test 3
             Console.WriteLine("Test 3");
@@ -58,8 +61,9 @@ namespace Alarmklockan
             alarmClock.Minute = 24;
             alarmClock.AlarmHour = 7;
             alarmClock.AlarmMinute = 35;
-            Console.WriteLine(alarmClock.ToString());
             Console.WriteLine("");//Blankrad
+            Console.WriteLine(alarmClock.ToString());
+            Console.WriteLine(HorizontalLine);
 
             //Test 4
             Console.WriteLine("Test 4");
@@ -71,7 +75,7 @@ namespace Alarmklockan
             alarmClock.AlarmMinute = 35;
             minutes = 13;
             Run(alarmClock, minutes);
-            Console.WriteLine("");//Blankrad
+            Console.WriteLine(HorizontalLine);
           
             //Test 5
             Console.WriteLine("Test 5");
@@ -83,7 +87,7 @@ namespace Alarmklockan
             alarmClock.AlarmMinute = 15;
             minutes = 6;
             Run(alarmClock, minutes);
-            Console.WriteLine("");//Blankrad
+            Console.WriteLine(HorizontalLine);
 
             //Test 6
             Console.WriteLine("Test 6");
@@ -105,7 +109,7 @@ namespace Alarmklockan
             {
                 ViewErrorMessage("Alarmtimmen är inte i intervallet 0-23.");
             }
-            Console.WriteLine("");//Blankrad
+            Console.WriteLine(HorizontalLine);
 
             //Test 7
             Console.WriteLine("Test 7");
@@ -128,7 +132,8 @@ namespace Alarmklockan
             {
                 string header = "Alarmminuten är inte i intervallet 0-59";
                 ViewTestHeader(header);
-            }           
+            }
+            Console.WriteLine(HorizontalLine);
         }
     }
 }

@@ -10,3 +10,9 @@ P:\git\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\obj\Deb
 P:\git\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\obj\Debug\Alarmklockan.csprojResolveAssemblyReference.cache
 P:\git\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\bin\Debug\Alarmklockan.exe
 P:\git\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\bin\Debug\Alarmklockan.pdb
+C:\git\projects\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\bin\Debug\Alarmklockan.exe.config
+C:\git\projects\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\obj\Debug\Alarmklockan.exe
+C:\git\projects\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\obj\Debug\Alarmklockan.pdb
+C:\git\projects\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\bin\Debug\Alarmklockan.exe
+C:\git\projects\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\bin\Debug\Alarmklockan.pdb
+C:\git\projects\1dv402-kh222mj-2-2-Digital-v-ckarklocka\Alarmklockan\Alarmklockan\obj\Debug\Alarmklockan.csprojResolveAssemblyReference.cache
