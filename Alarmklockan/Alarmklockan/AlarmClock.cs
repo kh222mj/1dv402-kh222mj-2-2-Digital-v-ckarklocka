@@ -8,19 +8,19 @@ namespace Alarmklockan
 {
     public class AlarmClock
     {
-        private int _alarmHour; 
+        private int _alarmHour;
 
         private int _alarmMinute;
 
         private int _hour;
 
         private int _minute;
-        public int AlarmHour 
-        {         
+        public int AlarmHour
+        {
             get { return _alarmHour; }
             set
             {
-                if (value > 24 || value < 0)
+                if (value > 23 || value < 0)
                 {
                     throw new ArgumentException("Alarmtimmen är inte i intervallet 0-23.");
                 }
@@ -32,7 +32,7 @@ namespace Alarmklockan
             get { return _alarmMinute; }
             set
             {
-                if (value > 60 || value < 0)
+                if (value > 59 || value < 0)
                 {
                     throw new ArgumentException("Alarmminuten är inte i intervallet 0-59.");
                 }
@@ -44,7 +44,7 @@ namespace Alarmklockan
             get { return _hour; }
             set
             {
-                if (value > 24 || value < 0)
+                if (value > 23 || value < 0)
                 {
                     throw new ArgumentException("Timmen är inte i intervallet 0-23");
                 }
@@ -56,14 +56,14 @@ namespace Alarmklockan
             get { return _minute; }
             set
             {
-                if (value > 60 || value < 0)
+                if (value > 59 || value < 0)
                 {
                     throw new ArgumentException("Minuten är inte i intervallet 0-59");
                 }
                 _minute = value;
             }
         }
-        public AlarmClock() 
+        public AlarmClock()
             : this(0, 0)
         {
         }
@@ -71,40 +71,42 @@ namespace Alarmklockan
             : this(hour, minute, 0, 0)
         {
         }
-        public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute) 
+        public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute)
         {
-            hour = Hour;
-            minute = Minute;
-            alarmHour = AlarmHour;
-            alarmMinute = AlarmMinute;
+            Hour = hour;
+            Minute = minute;
+            AlarmHour = alarmHour;
+            AlarmMinute = alarmMinute;
         }
-        public bool TickTock()  
+        public bool TickTock()
         {
-            Minute++;
-
-            if (Minute == 60) 
+            if (Minute < 59)
+            {
+                Minute++;
+            }
+            else
             {
                 Minute = 0;
-                Hour++;
+                if (Hour < 23)
+                {
+                    Hour++;
+                }
+                else
+                {
+                    Hour = 0;
+                }
             }
-            if (Hour == 24) 
-            {
-                Hour = 0;
-            }
-            if (Hour == AlarmHour && Minute == AlarmMinute) 
-            {
-                return true;
-            }        
-            return false;
+
+            return Hour == AlarmHour && Minute == AlarmMinute;
         }
-        public string ToString() 
+        public override string ToString()
         {
             Console.ResetColor();
             if (_alarmHour == 0 && _alarmMinute == 0)
             {
                 return String.Format("{0,4}:{1:00} <{2}:{3:00}>", _hour, _minute, _alarmHour, _alarmMinute);
             }
-            if (_hour == _alarmHour && _minute == _alarmMinute) 
+            if (_hour == _alarmHour && _minute == _alarmMinute)
             {
                 Console.BackgroundColor = ConsoleColor.Blue;
                 Console.ForegroundColor = ConsoleColor.White;

@@ -25,11 +25,11 @@ namespace Alarmklockan
             Console.WriteLine(message);
             Console.ResetColor();
         }
-        private static void ViewTestHeader(string header) 
+        private static void ViewTestHeader(string message) 
         {
             Console.BackgroundColor = ConsoleColor.Red;
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(header);
+            Console.WriteLine(message);
             Console.ResetColor();
         }
         static void Main(string[] args)
@@ -97,17 +97,17 @@ namespace Alarmklockan
             {
                 alarmClock.Hour = 2000;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                ViewErrorMessage("Timmen är inte i intervallet 0-23.");
+                ViewErrorMessage(ex.Message);
             }
             try
             {
                 alarmClock.AlarmHour = 2000;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                ViewErrorMessage("Alarmtimmen är inte i intervallet 0-23.");
+                ViewErrorMessage(ex.Message);
             }
             Console.WriteLine(HorizontalLine);
 
@@ -117,23 +117,22 @@ namespace Alarmklockan
             Console.WriteLine("");//Blankrad
             try
             {
-                alarmClock.Hour = 2000;
+                new AlarmClock(3, 3, 3, 3);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                string header = "Minuten är inte i intervallet 0-59"; 
-                ViewTestHeader(header);
+                ViewTestHeader(ex.Message);
             }
-            try
-            {
-                alarmClock.AlarmMinute = 2000;
-            }
-            catch (Exception)
-            {
-                string header = "Alarmminuten är inte i intervallet 0-59";
-                ViewTestHeader(header);
-            }
-            Console.WriteLine(HorizontalLine);
+            //try
+            //{
+            //    new AlarmClock(25, 65, 22, 22);
+            //}
+            //catch (Exception ex)
+            //{
+            //    ViewTestHeader(ex.Message);
+            //}
+            //Console.WriteLine(HorizontalLine);
+
         }
     }
 }
