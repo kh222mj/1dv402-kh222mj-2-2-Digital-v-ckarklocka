@@ -117,22 +117,37 @@ namespace Alarmklockan
             Console.WriteLine("");//Blankrad
             try
             {
-                new AlarmClock(3, 3, 3, 3);
+                new AlarmClock(0, 0, 200, 0);
             }
             catch (Exception ex)
             {
                 ViewTestHeader(ex.Message);
             }
-            //try
-            //{
-            //    new AlarmClock(25, 65, 22, 22);
-            //}
-            //catch (Exception ex)
-            //{
-            //    ViewTestHeader(ex.Message);
-            //}
-            //Console.WriteLine(HorizontalLine);
-
+            try
+            {
+                new AlarmClock(0, 0, 0, 200);
+            }
+            catch (Exception ex)
+            {
+                ViewTestHeader(ex.Message);
+            }
+            try
+            {
+                new AlarmClock(200, 0, 0, 0);
+            }
+            catch (Exception ex)
+            {
+                ViewTestHeader(ex.Message);
+            }
+            try
+            {
+                new AlarmClock(0, 200, 0, 0);
+            }
+            catch (Exception ex)
+            {
+                ViewTestHeader(ex.Message);
+            }
+            Console.WriteLine(HorizontalLine);           
         }
     }
 }
